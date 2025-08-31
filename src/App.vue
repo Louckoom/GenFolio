@@ -1,11 +1,19 @@
-<script setup></script>
+<script setup>
+import Header from "./components/header.vue"
+import PreviewScreen from "./components/Preview.vue"
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+<Header/>
+<div class="containerPreview">
+<PreviewScreen/>
+</div>
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.containerPreview {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 20px;
+}
+</style>

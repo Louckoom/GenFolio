@@ -2,7 +2,12 @@
 
 <script>
 export default {
-  props: ['theme']
+  props: {
+    theme: {
+      type: Object,
+      required: true
+    }
+  }
 };
 </script>
 
@@ -35,11 +40,11 @@ export default {
     <div class="HeroSectionPreview">
 
         <div class="MainTitlePreview">
-            <h2 :style="{ color: theme.TextMainColor }">Présenter. Simplement.</h2>
+            <h2 :style="{ color: theme.TextMainColor, fontFamily: theme.titleFont}" >Présenter. Simplement.</h2>
         </div>
 
         <div class="SubTitlePreview">
-            <h4 :style="{ color: theme.TextSecondColor }">Un portfolio épuré, pour laisser votre travail parler.</h4>
+            <h4 :style="{ color: theme.TextSecondColor, fontFamily: theme.textFont }">Un portfolio épuré, pour laisser votre travail parler.</h4>
         </div>
     </div>
 
@@ -50,7 +55,7 @@ export default {
         <img src="../../public/photos_static/transparent bg.png"></img>
     </div>
 
-    <h3 :style="{ color: theme.accentColor }">Le thème sélectionné est : {{ theme.style }}</h3>
+    <h3 :style="{ color: theme.accentColor }">Preview</h3>
 
 </div>
 

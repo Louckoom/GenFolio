@@ -23,11 +23,40 @@ import Header from "./components/header.vue"
       <button @click="nextStep">Suivant</button>
     </div>
 
-        <div v-if="currentStep === 3">
+    <div v-if="currentStep === 3">
       <h1>Choisissez votre Font</h1>
+      <FontInput
+        v-model:modelValueTitle="currentTheme.titleFont"
+        v-model:modelValueText="currentTheme.textFont"
+        :fonts="fonts"
+      />
       <button @click="prevStep">Précédent</button>
       <button @click="nextStep">Suivant</button>
     </div>
+
+    <!-- Étape 4 : Révision du thème -->
+    <div v-if="currentStep === 4">
+      <h1>Révision du Thème</h1>
+      <div class="theme-summary">
+        <h2>Style :</h2>
+        <p>{{ currentTheme.style }}</p>
+        <h2>Couleurs :</h2>
+        <div class="color-boxes">
+          <div class="color-box" :style="{ backgroundColor: currentTheme.TextMainColor }"></div>
+          <p :style="{ backgroundColor: currentTheme.TextMainColor }">Couleur principale : {{ currentTheme.TextMainColor }}</p>
+        </div>
+        <div class="color-boxes">
+          <div class="color-box" :style="{ backgroundColor: currentTheme.TextSecondColor }"></div>
+          <p :style="{ backgroundColor: currentTheme.TextSecondColor }">Couleur d'accent : {{ currentTheme.TextSecondColor }}</p>
+        </div>
+        <h2>Polices :</h2>
+        <p>Titre : {{ currentTheme.titleFont }}</p>
+        <p>Texte : {{ currentTheme.textFont }}</p>
+      </div>
+      <button @click="prevStep">Précédent</button>
+      <button @click="nextStep">Générer le thème</button>
+    </div>
+
 
     <!-- Écran de prévisualisation -->
     <Preview :theme="currentTheme" />
@@ -38,12 +67,13 @@ import Header from "./components/header.vue"
 import StyleInput from './components/styleInput.vue';
 import Preview from './components/Preview.vue';
 import ColorInput from './components/ColorInput.vue';
+import FontInput from './components/FontInput.vue';
 
 export default {
   components: {
     StyleInput,
     Preview,
-    ColorInput
+    ColorInput,
   },
   data() {
     return {
@@ -59,6 +89,11 @@ export default {
         {
           SecondText: ['#F08381', '#E071FF', '#99EBFD']
         }
+      ],
+      fonts: [
+        { name: 'Savate', value: 'Savate, sans-serif'},
+        { name: 'Orbitron', value: 'Orbitron, sans-serif'},
+        { name: 'Amarante', value: 'Amarante, serif'},
       ],
       selectedTheme: 'light-minimalist',
       currentStep: 1,
@@ -95,8 +130,19 @@ export default {
 <style lang="scss" scoped>
 #app {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   margin: 0 20px;
+
+  .color-boxes {
+    p {
+      padding: 10px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 600;
+  }
+
 }
+}
+
+
 </style>

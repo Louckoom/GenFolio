@@ -60,8 +60,8 @@ export default {
   }
 
   &.active {
-    border-color: #007bff; // Une couleur pour indiquer la sélection
-    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.2);
+    border-color: #000000; // Une couleur pour indiquer la sélection
+    box-shadow: 0 0 0 6px rgba(129, 129, 129, 0.2);
   }
 }
 

@@ -39,17 +39,20 @@ import Header from "./components/header.vue"
       <h1>Révision du Thème</h1>
       <div class="theme-summary">
         <h2>Style :</h2>
+        <hr></hr>
         <p>{{ currentTheme.style }}</p>
         <h2>Couleurs :</h2>
+        <hr></hr>
         <div class="color-boxes">
           <div class="color-box" :style="{ backgroundColor: currentTheme.TextMainColor }"></div>
-          <p :style="{ backgroundColor: currentTheme.TextMainColor }">Couleur principale : {{ currentTheme.TextMainColor }}</p>
+          <p :style="{ backgroundColor: currentTheme.TextMainColor, color : currentTheme.primaryColor }">Couleur principale : {{ currentTheme.TextMainColor }}</p>
         </div>
         <div class="color-boxes">
           <div class="color-box" :style="{ backgroundColor: currentTheme.TextSecondColor }"></div>
-          <p :style="{ backgroundColor: currentTheme.TextSecondColor }">Couleur d'accent : {{ currentTheme.TextSecondColor }}</p>
+          <p :style="{ backgroundColor: currentTheme.TextSecondColor, color : currentTheme.primaryColor }">Couleur d'accent : {{ currentTheme.TextSecondColor }}</p>
         </div>
         <h2>Polices :</h2>
+        <hr></hr>
         <p>Titre : {{ currentTheme.titleFont }}</p>
         <p>Texte : {{ currentTheme.textFont }}</p>
       </div>
@@ -78,8 +81,8 @@ export default {
   data() {
     return {
       themes: [
-      { style: 'light-minimalist', primaryColor: '#FFFFFF', accentColor: '#121212', TextMainColor: '#121212', TextSecondColor: '#121212' },  
-      { style: 'dark-minimalist', primaryColor: '#121212', accentColor: '#FFFFFF', TextMainColor: '#FFFFFF', TextSecondColor: '#FFFFFF' }
+      { style: 'Light Minimalist', primaryColor: '#FFFFFF', accentColor: '#121212', TextMainColor: '#121212', TextSecondColor: '#121212' },  
+      { style: 'Dark Minimalist', primaryColor: '#121212', accentColor: '#FFFFFF', TextMainColor: '#FFFFFF', TextSecondColor: '#FFFFFF' }
         
       ],
       predefinedColors: [
@@ -95,7 +98,7 @@ export default {
         { name: 'Orbitron', value: 'Orbitron, sans-serif'},
         { name: 'Amarante', value: 'Amarante, serif'},
       ],
-      selectedTheme: 'light-minimalist',
+      selectedTheme: 'Light Minimalist',
       currentStep: 1,
       tempTheme: null // C'est ici que l'on va stocker le thème temporaire
     };
@@ -139,6 +142,7 @@ export default {
       padding: 10px;
       font-family: Arial, Helvetica, sans-serif;
       font-weight: 600;
+      border: 2px solid black;
   }
 
 }

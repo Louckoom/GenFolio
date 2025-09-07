@@ -13,7 +13,6 @@
         <span class="theme-name">{{ theme.style }}</span>
         <div class="color-palette">
           <div class="primary-color-box" :style="{ backgroundColor: theme.primaryColor }"></div>
-          <div class="accent-color-box" :style="{ backgroundColor: theme.accentColor }"></div>
         </div>
       </div>
     </div>
@@ -80,6 +79,6 @@ export default {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  border: 1px solid #ddd;
+  border: 1px solid #000000;
 }
 </style>
